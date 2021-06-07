@@ -8,12 +8,22 @@
 import UIKit
 
 class PlanetCollectionViewController: UICollectionViewController, PicManagerDelegate {
-    func information(_ manager: PicManager, didFetch picInfo: [Picture]) {
-        <#code#>
-    }
     
+    var cellpictures: [Picture] = []
+    
+    func information(_ manager: PicManager, didFetch picInfo: [Picture]) {
+        self.cellpictures.append(contentsOf: picInfo)
+        
+        DispatchQueue.main.async (
+            execute: { () -> Void in
+                let _ = self.collectionView.reloadData()
+                return ()
+            }
+        )
+    }
+
     func information(_ manager: PicManager, didFetch detailInfo: [DetailInfo]) {
-        <#code#>
+        return
     }
     
 
@@ -25,23 +35,35 @@ class PlanetCollectionViewController: UICollectionViewController, PicManagerDele
         
         picManerger.getPic()
         
+        let itemSpace: CGFloat = 3
+        let columnCount: CGFloat = 4
+                
+        let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
+                
+        let width = floor((collectionView.bounds.width - itemSpace * (columnCount-1)) / columnCount)
+        flowLayout?.itemSize = CGSize(width: width, height: width)
+                
+        flowLayout?.estimatedItemSize = .zero
+        flowLayout?.minimumInteritemSpacing = itemSpace
+        flowLayout?.minimumLineSpacing = itemSpace
+        
     }
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.cellpictures.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PlanetCollectionViewCell
     
-        // Configure the cell
+        let picture: Picture = cellpictures[indexPath.row]
+        
+        let url = URL(string: picture.url)
+        let data = try? Data(contentsOf: url!)
+        cell.cellImage.image = UIImage(data: data!)
+        cell.cellTitle.text = picture.title
+        
     
         return cell
     }
