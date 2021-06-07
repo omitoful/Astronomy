@@ -16,6 +16,8 @@
 		9179C376266E581300BBE93A /* PlanetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C375266E581300BBE93A /* PlanetCollectionViewController.swift */; };
 		9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C378266E583A00BBE93A /* PlanetCollectionViewCell.swift */; };
 		9179C37C266E588200BBE93A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C37B266E588200BBE93A /* DetailViewController.swift */; };
+		9179C381266E6F4B00BBE93A /* PicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C380266E6F4B00BBE93A /* PicManager.swift */; };
+		9179C384266E7D4900BBE93A /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C383266E7D4900BBE93A /* Information.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9179C375266E581300BBE93A /* PlanetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewController.swift; sourceTree = "<group>"; };
 		9179C378266E583A00BBE93A /* PlanetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewCell.swift; sourceTree = "<group>"; };
 		9179C37B266E588200BBE93A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9179C380266E6F4B00BBE93A /* PicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicManager.swift; sourceTree = "<group>"; };
+		9179C383266E7D4900BBE93A /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				9179C364266E438E00BBE93A /* ViewController.swift */,
 				9179C366266E438E00BBE93A /* Main.storyboard */,
 				9179C375266E581300BBE93A /* PlanetCollectionViewController.swift */,
+				9179C380266E6F4B00BBE93A /* PicManager.swift */,
+				9179C383266E7D4900BBE93A /* Information.swift */,
 				9179C378266E583A00BBE93A /* PlanetCollectionViewCell.swift */,
 				9179C37B266E588200BBE93A /* DetailViewController.swift */,
 				9179C369266E439200BBE93A /* Assets.xcassets */,
@@ -147,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9179C365266E438E00BBE93A /* ViewController.swift in Sources */,
+				9179C381266E6F4B00BBE93A /* PicManager.swift in Sources */,
+				9179C384266E7D4900BBE93A /* Information.swift in Sources */,
 				9179C361266E438E00BBE93A /* AppDelegate.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
 				9179C37C266E588200BBE93A /* DetailViewController.swift in Sources */,
@@ -301,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45C7J6QVKC;
 				INFOPLIST_FILE = Astronomy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45C7J6QVKC;
 				INFOPLIST_FILE = Astronomy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
