@@ -10,13 +10,8 @@ import Foundation
 struct Picture {
     let url: String
     let title: String
-}
-
-struct DetailInfo {
     let hdurl: String
-    let title: String
     let date: String
     let copyright: String
     let description: String
-    
 }

@@ -12,28 +12,27 @@ class PlanetCollectionViewController: UICollectionViewController, PicManagerDele
     var cellpictures: [Picture] = []
     
     func information(_ manager: PicManager, didFetch picInfo: [Picture]) {
+        self.cellpictures = []
         self.cellpictures.append(contentsOf: picInfo)
-        
+        print("1")
         DispatchQueue.main.async (
             execute: { () -> Void in
+                print("3")
                 let _ = self.collectionView.reloadData()
                 return ()
             }
         )
-    }
-
-    func information(_ manager: PicManager, didFetch detailInfo: [DetailInfo]) {
-        return
+        print("2")
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let picManerger: PicManager = PicManager.init()
-        picManerger.delegate = self
+        let picManager: PicManager = PicManager.init()
+        picManager.delegate = self
         
-        picManerger.getPic()
+        picManager.getPic()
         
         let itemSpace: CGFloat = 3
         let columnCount: CGFloat = 4
@@ -58,13 +57,31 @@ class PlanetCollectionViewController: UICollectionViewController, PicManagerDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PlanetCollectionViewCell
     
         let picture: Picture = cellpictures[indexPath.row]
-        
-        let url = URL(string: picture.url)
-        let data = try? Data(contentsOf: url!)
-        cell.cellImage.image = UIImage(data: data!)
+        DispatchQueue.global().async {
+            let url = URL(string: picture.url)
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                cell.cellImage.image = UIImage(data: data!)
+            }
+        }
         cell.cellTitle.text = picture.title
         
-    
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailInfo: Picture = cellpictures[indexPath.row]
+//        print(detailInfo)
+        let info = ["url": detailInfo.url,
+                    "hdurl": detailInfo.hdurl,
+                    "title": detailInfo.title,
+                    "date": detailInfo.date,
+                    "copyright": detailInfo.copyright,
+                    "description": detailInfo.description]
+        
+        let userdefault = UserDefaults.standard
+        userdefault.set(info, forKey: "detailInfo")
+        
     }
 }

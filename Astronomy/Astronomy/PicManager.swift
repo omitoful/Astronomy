@@ -9,8 +9,6 @@ import Foundation
 
 protocol PicManagerDelegate: AnyObject {
     func information(_ manager: PicManager, didFetch picInfo: [Picture])
-
-    func information(_ manager: PicManager, didFetch detailInfo: [DetailInfo])
 }
 
 
@@ -36,9 +34,8 @@ class PicManager {
                                 // for loop
 //                                print(eachData.count)
                                 var cellpictures: [Picture] = []
-                                var detailInfos: [DetailInfo] = []
                                 
-                                for i in Range(0...20) {
+                                for i in Range(0...1) {
                                     if let title: String = eachData[i]["title"] as? String {
                                         if let url: String = eachData[i]["url"] as? String {
                                             if let hdurl: String = eachData[i]["hdurl"] as? String {
@@ -46,11 +43,9 @@ class PicManager {
                                                     if let copyright: String = eachData[i]["copyright"] as? String {
                                                         if let description: String = eachData[i]["description"] as? String {
                                                             
-                                                            let picture = Picture(url: url, title: title)
+                                                            let picture = Picture(url: url, title: title, hdurl: hdurl, date: date, copyright: copyright, description: description)
                                                             cellpictures.append(picture)
                                                             
-                                                            let detailInfo = DetailInfo(hdurl: hdurl, title: title, date: date, copyright: copyright, description: description)
-                                                            detailInfos.append(detailInfo)
                                                             
                                                         } else {
                                                             print("description error.")
@@ -72,55 +67,50 @@ class PicManager {
                                     }
                                 }
                                 self.delegate?.information(self, didFetch: cellpictures)
-                                self.delegate?.information(self, didFetch: detailInfos)
                                 
-                                let concurrentQueue = DispatchQueue(label: "label1", attributes: .concurrent)
-                                concurrentQueue.async {
-                                    for i in Range(21...40) {
-                                        if let title: String = eachData[i]["title"] as? String {
-                                            if let url: String = eachData[i]["url"] as? String {
-                                                if let hdurl: String = eachData[i]["hdurl"] as? String {
-                                                    if let date: String = eachData[i]["date"] as? String {
-                                                        if let copyright: String = eachData[i]["copyright"] as? String {
-                                                            if let description: String = eachData[i]["description"] as? String {
-                                                                
-                                                                let picture = Picture(url: url, title: title)
-                                                                cellpictures.append(picture)
-                                                                
-                                                                let detailInfo = DetailInfo(hdurl: hdurl, title: title, date: date, copyright: copyright, description: description)
-                                                                detailInfos.append(detailInfo)
-                                                                
-                                                            } else {
-                                                                print("description error.")
-                                                            }
-                                                        } else {
-                                                            print("copyright error.")
-                                                        }
-                                                    } else {
-                                                        print("date error.")
-                                                    }
-                                                } else {
-                                                    print("hdurl error.")
-                                                }
-                                            } else {
-                                                print("url error.")
-                                            }
-                                        } else {
-                                            print("title error.")
-                                        }
-                                    }
-                                    self.delegate?.information(self, didFetch: cellpictures)
-                                    self.delegate?.information(self, didFetch: detailInfos)
-                                    print("task2")
-                                }
-                                concurrentQueue.async {
-                                    
-                                    print("task3")
-                                }
-                                concurrentQueue.async {
-                                    
-                                    print("task4")
-                                }
+//                                let concurrentQueue = DispatchQueue(label: "label1", attributes: .concurrent)
+//                                concurrentQueue.async {
+//                                    for i in Range(11...20) {
+//                                        if let title: String = eachData[i]["title"] as? String {
+//                                            if let url: String = eachData[i]["url"] as? String {
+//                                                if let hdurl: String = eachData[i]["hdurl"] as? String {
+//                                                    if let date: String = eachData[i]["date"] as? String {
+//                                                        if let copyright: String = eachData[i]["copyright"] as? String {
+//                                                            if let description: String = eachData[i]["description"] as? String {
+//                                                                
+//                                                                let picture = Picture(url: url, title: title, hdurl: hdurl, date: date, copyright: copyright, description: description)
+//                                                                cellpictures.append(picture)
+//                                                                
+//                                                            } else {
+//                                                                print("description error.")
+//                                                            }
+//                                                        } else {
+//                                                            print("copyright error.")
+//                                                        }
+//                                                    } else {
+//                                                        print("date error.")
+//                                                    }
+//                                                } else {
+//                                                    print("hdurl error.")
+//                                                }
+//                                            } else {
+//                                                print("url error.")
+//                                            }
+//                                        } else {
+//                                            print("title error.")
+//                                        }
+//                                    }
+//                                    self.delegate?.information(self, didFetch: cellpictures)
+//                                    print("task2")
+//                                }
+//                                concurrentQueue.async {
+//                                    
+//                                    print("task3")
+//                                }
+//                                concurrentQueue.async {
+//                                    
+//                                    print("task4")
+//                                }
                                 
                                 
                                 
