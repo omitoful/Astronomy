@@ -14,15 +14,13 @@ class PlanetCollectionViewController: UICollectionViewController, PicManagerDele
     func information(_ manager: PicManager, didFetch picInfo: [Picture]) {
         self.cellpictures = []
         self.cellpictures.append(contentsOf: picInfo)
-        print("1")
+        
         DispatchQueue.main.async (
             execute: { () -> Void in
-                print("3")
                 let _ = self.collectionView.reloadData()
                 return ()
             }
         )
-        print("2")
     }
     
 
