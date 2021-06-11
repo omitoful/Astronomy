@@ -16,9 +16,8 @@ class PlanetCollectionViewController: UICollectionViewController, PicManagerDele
         self.cellpictures.append(contentsOf: picInfo)
         
         DispatchQueue.main.async (
-            execute: { () -> Void in
-                let _ = self.collectionView.reloadData()
-                return ()
+            execute: { () in
+                self.collectionView.reloadData()
             }
         )
     }
@@ -67,19 +66,13 @@ class PlanetCollectionViewController: UICollectionViewController, PicManagerDele
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let detailInfo: Picture = cellpictures[indexPath.row]
-//        print(detailInfo)
-        let info = ["url": detailInfo.url,
-                    "hdurl": detailInfo.hdurl,
-                    "title": detailInfo.title,
-                    "date": detailInfo.date,
-                    "copyright": detailInfo.copyright,
-                    "description": detailInfo.description]
-        
-        let userdefault = UserDefaults.standard
-        userdefault.set(info, forKey: "detailInfo")
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCollection"{
+            if let indexPaths = self.collectionView.indexPathsForSelectedItems {
+                let indexPath = indexPaths[0] as NSIndexPath
+                let destination = segue.destination as! DetailViewController
+                destination.picture = self.cellpictures[indexPath.row]
+            }
+        }
     }
 }

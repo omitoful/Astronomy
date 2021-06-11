@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B98267240480090ABBD /* MoreDetailViewController.swift */; };
 		9149B9B62670AD5D003B18C7 /* PlanetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149B9B52670AD5D003B18C7 /* PlanetTableViewController.swift */; };
 		9149B9BD2670AD8E003B18C7 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149B9BC2670AD8E003B18C7 /* PlanetTableViewCell.swift */; };
+		9149B9C12671399E003B18C7 /* NewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9149B9C02671399E003B18C7 /* NewDetailViewController.swift */; };
 		9179C361266E438E00BBE93A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C360266E438E00BBE93A /* AppDelegate.swift */; };
 		9179C363266E438E00BBE93A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C362266E438E00BBE93A /* SceneDelegate.swift */; };
 		9179C365266E438E00BBE93A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179C364266E438E00BBE93A /* ViewController.swift */; };
@@ -23,8 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91465B98267240480090ABBD /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		9149B9B52670AD5D003B18C7 /* PlanetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewController.swift; sourceTree = "<group>"; };
 		9149B9BC2670AD8E003B18C7 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
+		9149B9C02671399E003B18C7 /* NewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailViewController.swift; sourceTree = "<group>"; };
 		9179C35D266E438E00BBE93A /* Astronomy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9179C360266E438E00BBE93A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9179C362266E438E00BBE93A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				9179C37B266E588200BBE93A /* DetailViewController.swift */,
 				9149B9B52670AD5D003B18C7 /* PlanetTableViewController.swift */,
 				9149B9BC2670AD8E003B18C7 /* PlanetTableViewCell.swift */,
+				9149B9C02671399E003B18C7 /* NewDetailViewController.swift */,
+				91465B98267240480090ABBD /* MoreDetailViewController.swift */,
 				9179C369266E439200BBE93A /* Assets.xcassets */,
 				9179C36B266E439200BBE93A /* LaunchScreen.storyboard */,
 				9179C36E266E439200BBE93A /* Info.plist */,
@@ -163,6 +169,8 @@
 				9179C381266E6F4B00BBE93A /* PicManager.swift in Sources */,
 				9179C384266E7D4900BBE93A /* Information.swift in Sources */,
 				9179C361266E438E00BBE93A /* AppDelegate.swift in Sources */,
+				9149B9C12671399E003B18C7 /* NewDetailViewController.swift in Sources */,
+				91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
 				9179C37C266E588200BBE93A /* DetailViewController.swift in Sources */,
 				9179C376266E581300BBE93A /* PlanetCollectionViewController.swift in Sources */,

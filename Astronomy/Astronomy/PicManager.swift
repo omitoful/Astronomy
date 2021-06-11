@@ -16,7 +16,7 @@ class PicManager {
     static let shared = PicManager.init()
     weak var delegate: PicManagerDelegate? = nil
     
-    func getPic() -> Void {
+    func getPic() {
         let component = URLComponents(string: "https://raw.githubusercontent.com/cmmobile/NasaDataSet/main/apod.json")
         if let endPoint: URL = component?.url {
             var picReq = URLRequest(url: endPoint)

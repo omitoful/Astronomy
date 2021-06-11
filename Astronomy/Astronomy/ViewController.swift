@@ -15,7 +15,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.bgPic.layer.opacity = 0.8
     }
-
-
 }
 

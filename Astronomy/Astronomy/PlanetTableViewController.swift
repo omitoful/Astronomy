@@ -124,6 +124,7 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
         
         return swipeConfiguration
     }
+    
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         if self.cellCheck[indexPath.row] == false {
@@ -154,61 +155,69 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
         }
     }
     
-    
-    
-    
-    
-    
-    //try:
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let alertController = UIAlertController(title: nil, message: "What do you wanna do?", preferredStyle: .actionSheet)
-        
-        // for iPad pop:
-        if let popoverController = alertController.popoverPresentationController {
-            if let cell = tableView.cellForRow(at: indexPath) {
-                popoverController.sourceView = cell
-                popoverController.sourceRect = cell.bounds
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! NewDetailViewController
+                destination.picture = cellpictures[indexPath.row]
             }
         }
-        //-------------------
-        
-        let callMessage = { (action: UIAlertAction) -> Void in
-            let callAlert = UIAlertController(title: "Service Unavailable", message: "Sorry,the call is not available yet.Please try again later.", preferredStyle: .alert)
-            callAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            
-            self.present(callAlert, animated: true, completion: nil)
-        }
-        
-        let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let callAct = UIAlertAction(title: "Call 123-\(indexPath.row)", style: .default, handler: callMessage)
-        alertController.addAction(cancelAct)
-        alertController.addAction(callAct)
-        
-        if cellCheck[indexPath.row] == false {
-            let checkInAct = UIAlertAction(title: "Check In", style: .default, handler: { (action: UIAlertAction) -> Void in
-                let tableCell = tableView.cellForRow(at: indexPath)
-//                tableCell?.accessoryType = .checkmark
-                tableCell?.accessoryView = UIImageView.init(image: UIImage(systemName: "heart"))
-                
-                self.cellCheck[indexPath.row] = true
-            })
-            alertController.addAction(checkInAct)
-        } else {
-            let checkInAct = UIAlertAction(title: "Undo Check In", style: .default, handler: { (action: UIAlertAction) -> Void in
-                let tableCell = tableView.cellForRow(at: indexPath)
-//                tableCell?.accessoryType = .none
-                tableCell?.accessoryView = UIImageView.init(image: nil)
-                
-                self.cellCheck[indexPath.row] = false
-            })
-            alertController.addAction(checkInAct)
-        }
-        
-        present(alertController, animated: true, completion: nil)
-        
-        tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    
+    
+    
+    
+//    //just for trying didSelectRowAt:
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        let alertController = UIAlertController(title: nil, message: "What do you wanna do?", preferredStyle: .actionSheet)
+//
+//        // for iPad pop:
+//        if let popoverController = alertController.popoverPresentationController {
+//            if let cell = tableView.cellForRow(at: indexPath) {
+//                popoverController.sourceView = cell
+//                popoverController.sourceRect = cell.bounds
+//            }
+//        }
+//        //-------------------
+//
+//        let callMessage = { (action: UIAlertAction) -> Void in
+//            let callAlert = UIAlertController(title: "Service Unavailable", message: "Sorry,the call is not available yet.Please try again later.", preferredStyle: .alert)
+//            callAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//
+//            self.present(callAlert, animated: true, completion: nil)
+//        }
+//
+//        let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        let callAct = UIAlertAction(title: "Call 123-\(indexPath.row)", style: .default, handler: callMessage)
+//        alertController.addAction(cancelAct)
+//        alertController.addAction(callAct)
+//
+//        if cellCheck[indexPath.row] == false {
+//            let checkInAct = UIAlertAction(title: "Check In", style: .default, handler: { (action: UIAlertAction) -> Void in
+//                let tableCell = tableView.cellForRow(at: indexPath)
+////                tableCell?.accessoryType = .checkmark
+//                tableCell?.accessoryView = UIImageView.init(image: UIImage(systemName: "heart"))
+//
+//                self.cellCheck[indexPath.row] = true
+//            })
+//            alertController.addAction(checkInAct)
+//        } else {
+//            let checkInAct = UIAlertAction(title: "Undo Check In", style: .default, handler: { (action: UIAlertAction) -> Void in
+//                let tableCell = tableView.cellForRow(at: indexPath)
+////                tableCell?.accessoryType = .none
+//                tableCell?.accessoryView = UIImageView.init(image: nil)
+//
+//                self.cellCheck[indexPath.row] = false
+//            })
+//            alertController.addAction(checkInAct)
+//        }
+//
+//        present(alertController, animated: true, completion: nil)
+//
+//        tableView.deselectRow(at: indexPath, animated: false)
+//    }
     
     
 }
