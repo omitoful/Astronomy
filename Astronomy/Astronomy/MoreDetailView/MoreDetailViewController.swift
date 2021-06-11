@@ -76,5 +76,6 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         detailTableView.dataSource = self
         
         detailTableView.separatorStyle = .none
+        detailTableView.contentInsetAdjustmentBehavior = .never
     }
 }

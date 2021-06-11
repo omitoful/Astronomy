@@ -13,7 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let backBtnImage = UIImage(systemName: "arrow.backward")
+        UINavigationBar.appearance().backIndicatorImage = backBtnImage
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backBtnImage
+        
         return true
     }
 

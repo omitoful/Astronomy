@@ -33,7 +33,10 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
         
         // for iPad reading:
         self.tableView.cellLayoutMarginsFollowReadableWidth = true
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,7 +91,7 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
             
             self.tableView.deleteRows(at: [indexPath], with: .fade)
         })
-        deleteAct.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+        deleteAct.backgroundColor = UIColor(red: 231, green: 76, blue: 60)
         deleteAct.image = UIImage(systemName: "trash")
         
         let shareAct = UIContextualAction(style: .normal, title: "Share", handler: { (action, sourceView, completionHandler) in
@@ -117,7 +120,7 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
             }
             completionHandler(true)
         })
-        shareAct.backgroundColor = UIColor(red: 254/255, green: 149/255, blue: 38/255, alpha: 1)
+        shareAct.backgroundColor = UIColor(red: 254, green: 149, blue: 38)
         shareAct.image = UIImage(systemName: "square.and.arrow.up.fill")
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAct, shareAct])
