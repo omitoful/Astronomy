@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913FB9752673E5E0009E78AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 913FB9742673E5E0009E78AC /* MapKit.framework */; };
+		913FB97826748528009E78AC /* SeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB97726748528009E78AC /* SeparatorTableViewCell.swift */; };
+		913FB97B26748542009E78AC /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB97A26748542009E78AC /* MapTableViewCell.swift */; };
+		913FB97E26748BE7009E78AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB97D26748BE7009E78AC /* MapViewController.swift */; };
 		91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B98267240480090ABBD /* MoreDetailViewController.swift */; };
 		91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */; };
 		91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465BA32673991C0090ABBD /* TextTableViewCell.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		913FB9742673E5E0009E78AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		913FB97726748528009E78AC /* SeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorTableViewCell.swift; sourceTree = "<group>"; };
+		913FB97A26748542009E78AC /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		913FB97D26748BE7009E78AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		91465B98267240480090ABBD /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTableViewCell.swift; sourceTree = "<group>"; };
 		91465BA32673991C0090ABBD /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -53,12 +61,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				913FB9752673E5E0009E78AC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		913FB9732673E5E0009E78AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				913FB9742673E5E0009E78AC /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		913FB98026748BEA009E78AC /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				913FB97D26748BE7009E78AC /* MapViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		91465B9C267398260090ABBD /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +110,8 @@
 				91465B98267240480090ABBD /* MoreDetailViewController.swift */,
 				91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */,
 				91465BA32673991C0090ABBD /* TextTableViewCell.swift */,
+				913FB97726748528009E78AC /* SeparatorTableViewCell.swift */,
+				913FB97A26748542009E78AC /* MapTableViewCell.swift */,
 			);
 			path = MoreDetailView;
 			sourceTree = "<group>";
@@ -94,6 +121,7 @@
 			children = (
 				9179C35F266E438E00BBE93A /* Astronomy */,
 				9179C35E266E438E00BBE93A /* Products */,
+				913FB9732673E5E0009E78AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +145,7 @@
 				91465B9C267398260090ABBD /* CollectionView */,
 				91465B9D2673984A0090ABBD /* TableView */,
 				91465BA2267398EB0090ABBD /* MoreDetailView */,
+				913FB98026748BEA009E78AC /* MapView */,
 				9179C369266E439200BBE93A /* Assets.xcassets */,
 				9179C36B266E439200BBE93A /* LaunchScreen.storyboard */,
 				9179C36E266E439200BBE93A /* Info.plist */,
@@ -196,10 +225,12 @@
 			files = (
 				9149B9B62670AD5D003B18C7 /* PlanetTableViewController.swift in Sources */,
 				9179C365266E438E00BBE93A /* ViewController.swift in Sources */,
+				913FB97B26748542009E78AC /* MapTableViewCell.swift in Sources */,
 				9179C381266E6F4B00BBE93A /* PicManager.swift in Sources */,
 				9179C384266E7D4900BBE93A /* Information.swift in Sources */,
 				9179C361266E438E00BBE93A /* AppDelegate.swift in Sources */,
 				9149B9C12671399E003B18C7 /* NewDetailViewController.swift in Sources */,
+				913FB97826748528009E78AC /* SeparatorTableViewCell.swift in Sources */,
 				91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
 				91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */,
@@ -208,6 +239,7 @@
 				9179C363266E438E00BBE93A /* SceneDelegate.swift in Sources */,
 				91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */,
 				9149B9BD2670AD8E003B18C7 /* PlanetTableViewCell.swift in Sources */,
+				913FB97E26748BE7009E78AC /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

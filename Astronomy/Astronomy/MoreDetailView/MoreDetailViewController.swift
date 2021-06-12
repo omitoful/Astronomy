@@ -10,7 +10,7 @@ import UIKit
 class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -21,6 +21,7 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.contextImage.image = UIImage(systemName: "phone")
             cell.contextLabel.text = "0800-000-000"
+            cell.selectionStyle = .none
             
             return cell
         case 1:
@@ -29,12 +30,26 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.contextImage.image = UIImage(systemName: "map")
             cell.contextLabel.text = "115台北市南港區南港路一段313號"
             cell.contextLabel.numberOfLines = 0
+            cell.selectionStyle = .none
             
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailText") as! TextTableViewCell
             cell.descriptionLabel.text = picture.description
             cell.descriptionLabel.numberOfLines = 0
+            cell.selectionStyle = .none
+            
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Separator") as! SeparatorTableViewCell
+            cell.separatorLabel.text = "HOW TO GET HERE?"
+            cell.selectionStyle = .none
+            
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Map") as! MapTableViewCell
+            cell.selectionStyle = .none
+            cell.configure(location: "115台北市南港區南港路一段313號")
             
             return cell
         default:
@@ -77,5 +92,16 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         detailTableView.separatorStyle = .none
         detailTableView.contentInsetAdjustmentBehavior = .never
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = .white
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMap" {
+            let destination = segue.destination as! MapViewController
+            destination.picture = self.picture
+        }
     }
 }
