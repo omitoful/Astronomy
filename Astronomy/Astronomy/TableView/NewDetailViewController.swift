@@ -10,7 +10,7 @@ import UIKit
 class NewDetailViewController: UIViewController {
     
     @IBOutlet weak var bigImage: UIImageView!
-    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "")
+    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()

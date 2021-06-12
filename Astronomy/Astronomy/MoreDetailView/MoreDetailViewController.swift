@@ -63,8 +63,9 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var moreDate: UILabel!
     @IBOutlet weak var moreImage: UIImageView!
     @IBOutlet weak var detailTableView: UITableView!
+    @IBOutlet weak var ratingImage: UIImageView!
     
-    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "")
+    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,31 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         if segue.identifier == "ShowMap" {
             let destination = segue.destination as! MapViewController
             destination.picture = self.picture
+        } else if segue.identifier == "ShowReview" {
+            let destination = segue.destination as! ReviewViewController
+            destination.picture = self.picture
         }
     }
+    @IBAction func close(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func ratePicture(segue: UIStoryboardSegue) {
+        if let rating = segue.identifier {
+            self.picture.rating = rating
+            self.ratingImage.image = UIImage(named: rating)
+            
+            let scaleTransform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.ratingImage.transform = scaleTransform
+            self.ratingImage.alpha = 0
+            
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: [], animations: {
+                self.ratingImage.transform = .identity
+                self.ratingImage.alpha = 1
+            }, completion: nil)
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -15,6 +15,7 @@ struct Picture {
     let date: String
     let copyright: String
     let description: String
+    var rating: String
 }
 
 extension UIColor {

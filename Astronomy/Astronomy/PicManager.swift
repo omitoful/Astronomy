@@ -43,7 +43,7 @@ class PicManager {
                                                     if let copyright: String = eachData[i]["copyright"] as? String {
                                                         if let description: String = eachData[i]["description"] as? String {
                                                             
-                                                            let picture = Picture(url: url, title: title, hdurl: hdurl, date: date, copyright: copyright, description: description)
+                                                            let picture = Picture(url: url, title: title, hdurl: hdurl, date: date, copyright: copyright, description: description, rating: "")
                                                             cellpictures.append(picture)
                                                             
                                                             

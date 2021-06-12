@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailTitle: UILabel!
     @IBOutlet weak var wait: UILabel!
     
-    var picture: Picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "")
+    var picture: Picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
