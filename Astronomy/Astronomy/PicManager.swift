@@ -35,7 +35,7 @@ class PicManager {
 //                                print(eachData.count)
                                 var cellpictures: [Picture] = []
                                 
-                                for i in Range(0...eachData.count-1) {
+                                for i in Range(0...8) {
                                     if let title: String = eachData[i]["title"] as? String {
                                         if let url: String = eachData[i]["url"] as? String {
                                             if let hdurl: String = eachData[i]["hdurl"] as? String {

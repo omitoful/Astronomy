@@ -12,6 +12,8 @@
 		913FB97B26748542009E78AC /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB97A26748542009E78AC /* MapTableViewCell.swift */; };
 		913FB97E26748BE7009E78AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB97D26748BE7009E78AC /* MapViewController.swift */; };
 		913FB9852674B191009E78AC /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9842674B191009E78AC /* ReviewViewController.swift */; };
+		913FB98926752089009E78AC /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB98826752089009E78AC /* RoundedTextField.swift */; };
+		913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB98B267527D1009E78AC /* AddPicTableViewController.swift */; };
 		91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B98267240480090ABBD /* MoreDetailViewController.swift */; };
 		91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */; };
 		91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465BA32673991C0090ABBD /* TextTableViewCell.swift */; };
@@ -37,6 +39,8 @@
 		913FB97A26748542009E78AC /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		913FB97D26748BE7009E78AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		913FB9842674B191009E78AC /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		913FB98826752089009E78AC /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		913FB98B267527D1009E78AC /* AddPicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPicTableViewController.swift; sourceTree = "<group>"; };
 		91465B98267240480090ABBD /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTableViewCell.swift; sourceTree = "<group>"; };
 		91465BA32673991C0090ABBD /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +96,14 @@
 				913FB9842674B191009E78AC /* ReviewViewController.swift */,
 			);
 			path = Rate;
+			sourceTree = "<group>";
+		};
+		913FB98E267527E0009E78AC /* AddPic */ = {
+			isa = PBXGroup;
+			children = (
+				913FB98B267527D1009E78AC /* AddPicTableViewController.swift */,
+			);
+			path = AddPic;
 			sourceTree = "<group>";
 		};
 		91465B9C267398260090ABBD /* CollectionView */ = {
@@ -150,6 +162,7 @@
 				9179C362266E438E00BBE93A /* SceneDelegate.swift */,
 				9179C364266E438E00BBE93A /* ViewController.swift */,
 				9179C366266E438E00BBE93A /* Main.storyboard */,
+				913FB98826752089009E78AC /* RoundedTextField.swift */,
 				9179C383266E7D4900BBE93A /* Information.swift */,
 				9179C380266E6F4B00BBE93A /* PicManager.swift */,
 				91465B9C267398260090ABBD /* CollectionView */,
@@ -157,6 +170,7 @@
 				91465BA2267398EB0090ABBD /* MoreDetailView */,
 				913FB98026748BEA009E78AC /* MapView */,
 				913FB9822674AC92009E78AC /* Rate */,
+				913FB98E267527E0009E78AC /* AddPic */,
 				9179C369266E439200BBE93A /* Assets.xcassets */,
 				9179C36B266E439200BBE93A /* LaunchScreen.storyboard */,
 				9179C36E266E439200BBE93A /* Info.plist */,
@@ -244,6 +258,7 @@
 				913FB97826748528009E78AC /* SeparatorTableViewCell.swift in Sources */,
 				913FB9852674B191009E78AC /* ReviewViewController.swift in Sources */,
 				91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */,
+				913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
 				91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */,
 				9179C37C266E588200BBE93A /* DetailViewController.swift in Sources */,
@@ -252,6 +267,7 @@
 				91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */,
 				9149B9BD2670AD8E003B18C7 /* PlanetTableViewCell.swift in Sources */,
 				913FB97E26748BE7009E78AC /* MapViewController.swift in Sources */,
+				913FB98926752089009E78AC /* RoundedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

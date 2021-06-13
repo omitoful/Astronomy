@@ -167,6 +167,10 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
         }
     }
     
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
     
