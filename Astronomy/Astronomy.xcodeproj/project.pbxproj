@@ -14,6 +14,7 @@
 		913FB9852674B191009E78AC /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9842674B191009E78AC /* ReviewViewController.swift */; };
 		913FB98926752089009E78AC /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB98826752089009E78AC /* RoundedTextField.swift */; };
 		913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB98B267527D1009E78AC /* AddPicTableViewController.swift */; };
+		913FB9B72675EBCD009E78AC /* Astronomy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9B52675EBCD009E78AC /* Astronomy.xcdatamodeld */; };
 		91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B98267240480090ABBD /* MoreDetailViewController.swift */; };
 		91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */; };
 		91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465BA32673991C0090ABBD /* TextTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 		913FB9842674B191009E78AC /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		913FB98826752089009E78AC /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		913FB98B267527D1009E78AC /* AddPicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPicTableViewController.swift; sourceTree = "<group>"; };
+		913FB9B62675EBCD009E78AC /* Astronomy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Astronomy.xcdatamodel; sourceTree = "<group>"; };
 		91465B98267240480090ABBD /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTableViewCell.swift; sourceTree = "<group>"; };
 		91465BA32673991C0090ABBD /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,12 +161,13 @@
 			isa = PBXGroup;
 			children = (
 				9179C360266E438E00BBE93A /* AppDelegate.swift */,
+				913FB9B52675EBCD009E78AC /* Astronomy.xcdatamodeld */,
 				9179C362266E438E00BBE93A /* SceneDelegate.swift */,
-				9179C364266E438E00BBE93A /* ViewController.swift */,
 				9179C366266E438E00BBE93A /* Main.storyboard */,
 				913FB98826752089009E78AC /* RoundedTextField.swift */,
 				9179C383266E7D4900BBE93A /* Information.swift */,
 				9179C380266E6F4B00BBE93A /* PicManager.swift */,
+				9179C364266E438E00BBE93A /* ViewController.swift */,
 				91465B9C267398260090ABBD /* CollectionView */,
 				91465B9D2673984A0090ABBD /* TableView */,
 				91465BA2267398EB0090ABBD /* MoreDetailView */,
@@ -260,6 +263,7 @@
 				91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */,
 				913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
+				913FB9B72675EBCD009E78AC /* Astronomy.xcdatamodeld in Sources */,
 				91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */,
 				9179C37C266E588200BBE93A /* DetailViewController.swift in Sources */,
 				9179C376266E581300BBE93A /* PlanetCollectionViewController.swift in Sources */,
@@ -471,6 +475,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		913FB9B52675EBCD009E78AC /* Astronomy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				913FB9B62675EBCD009E78AC /* Astronomy.xcdatamodel */,
+			);
+			currentVersion = 913FB9B62675EBCD009E78AC /* Astronomy.xcdatamodel */;
+			path = Astronomy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9179C355266E438E00BBE93A /* Project object */;
 }

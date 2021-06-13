@@ -12,7 +12,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var bigMapView: MKMapView!
     
-    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
+    var picture: PictureMO!
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identfier = "myMarker"

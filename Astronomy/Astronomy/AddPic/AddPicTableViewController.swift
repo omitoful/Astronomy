@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddPicTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -14,6 +15,9 @@ class AddPicTableViewController: UITableViewController, UITextFieldDelegate, UII
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var copyrightTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var picture: PictureMO!
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextTextField = view.viewWithTag(textField.tag + 1) {
@@ -119,12 +123,21 @@ class AddPicTableViewController: UITableViewController, UITextFieldDelegate, UII
     }
     @IBAction func saveInfo(_ sender: Any) {
         if titleTextField.text != "", dateTextField.text != "", urlTextField.text != "", copyrightTextField.text != "", descriptionTextView.text != "" {
-            print("title: \(titleTextField.text!)")
-            print("date: \(dateTextField.text!)")
-            print("url: \(urlTextField.text!)")
-            print("copyright: \(copyrightTextField.text!)")
-            print("description: \(descriptionTextView.text!)")
-            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                picture = PictureMO(context: appDelegate.persistentContainer.viewContext)
+                picture.title = titleTextField.text
+                picture.date = dateTextField.text
+                picture.url = urlTextField.text
+                picture.copyright = copyrightTextField.text
+                picture.picDescription = descriptionTextView.text
+                
+                if let picImage = photoImageView.image {
+                    picture.image = picImage.pngData()
+                }
+                
+                print("saving data to context...")
+                appDelegate.saveContext()
+            }
             performSegue(withIdentifier: "unwindToHome", sender: self)
         } else {
             let alert = UIAlertController(title: "oops!", message: "you need to fill all the blanks.", preferredStyle: .alert)

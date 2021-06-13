@@ -10,26 +10,21 @@ import UIKit
 class NewDetailViewController: UIViewController {
     
     @IBOutlet weak var bigImage: UIImageView!
-    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
+    var picture: PictureMO!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
-        let newDate = inputFormatter.date(from: self.picture.date)
+        let newDate = inputFormatter.date(from: self.picture.date!)
         inputFormatter.dateFormat = "yyyy MMM.dd"
         let result = inputFormatter.string(from: newDate!)
         
         self.title = result
         
-        DispatchQueue.global().async {
-            let url = URL(string: self.picture.url)
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                self.bigImage.image = UIImage(data: data!)
-                self.bigImage.alpha = 0.7
-            }
+        if let picimage = picture.image {
+            self.bigImage.image = UIImage(data: picimage)
         }
     }
     

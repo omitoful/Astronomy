@@ -189,8 +189,29 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="table view" image="pencil.circle.fill" catalog="system" id="pUf-UQ-fBq"/>
+                    <connections>
+                        <outlet property="emptyView" destination="fTy-Bs-CGV" id="KFa-x8-06M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2X-7L-9gd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="fTy-Bs-CGV">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please tab +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvB-RL-ppr">
+                            <rect key="frame" x="73" y="53.5" width="94" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Hrk-pk-tY6"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="mvB-RL-ppr" firstAttribute="centerX" secondItem="fTy-Bs-CGV" secondAttribute="centerX" id="Wgi-yF-6f8"/>
+                        <constraint firstItem="mvB-RL-ppr" firstAttribute="centerY" secondItem="fTy-Bs-CGV" secondAttribute="centerY" id="eDv-Gg-WL9"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="2777" y="1092"/>
         </scene>
@@ -331,7 +352,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fill in the date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFm-bc-x4e" customClass="RoundedTextField" customModule="Astronomy" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fill in the date (2021-06-13)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFm-bc-x4e" customClass="RoundedTextField" customModule="Astronomy" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28.5" width="374" height="53.5"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>

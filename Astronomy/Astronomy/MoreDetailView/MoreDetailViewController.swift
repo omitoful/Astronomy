@@ -65,7 +65,7 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var ratingImage: UIImageView!
     
-    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
+    var picture: PictureMO!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,18 +74,31 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
-        let newDate = inputFormatter.date(from: self.picture.date)
+        let newDate = inputFormatter.date(from: self.picture.date!)
         inputFormatter.dateFormat = "yyyy MMM.dd"
         let result = inputFormatter.string(from: newDate!)
         
         self.moreDate.text = result
         
+        if let rating = picture.rating {
+            ratingImage.image = UIImage(named: rating)
+        }
+        
         DispatchQueue.global().async {
-            let url = URL(string: self.picture.url)
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                self.moreImage.image = UIImage(data: data!)
-                self.moreImage.alpha = 0.7
+            if let picurl = self.picture.url, picurl != "" {
+                let url = URL(string: picurl)
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    self.moreImage.image = UIImage(data: data!)
+                    self.moreImage.alpha = 0.7
+                }
+            } else {
+                if let picimage = self.picture.image {
+                    DispatchQueue.main.async {
+                        self.moreImage.image = UIImage(data: picimage)
+                        self.moreImage.alpha = 0.7
+                    }
+                }
             }
         }
         detailTableView.delegate = self
@@ -115,6 +128,12 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         if let rating = segue.identifier {
             self.picture.rating = rating
             self.ratingImage.image = UIImage(named: rating)
+            
+            //@@@@@ save rating @@@@@
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                appDelegate.saveContext()
+            }
             
             let scaleTransform = CGAffineTransform(scaleX: 0.1, y: 0.1)
             self.ratingImage.transform = scaleTransform

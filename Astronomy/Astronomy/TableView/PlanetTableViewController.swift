@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import CoreData
 
-class PlanetTableViewController: UITableViewController, PicManagerDelegate {
-    var cellpictures: [Picture] = []
+class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFetchedResultsControllerDelegate {
+    var cellpictures: [PictureMO] = []
     var cellCheck: [Bool] = []
+    @IBOutlet var emptyView: UIView!
+    var fetchResult: NSFetchedResultsController<PictureMO>!
     
     func information(_ manager: PicManager, didFetch picInfo: [Picture]) {
-        self.cellpictures = []
-        self.cellpictures.append(contentsOf: picInfo)
+//        self.cellpictures = []
+//        self.cellpictures.append(contentsOf: picInfo)
+        
         self.cellCheck = Array(repeating: false, count: cellpictures.count)
         DispatchQueue.main.async (
             execute: { () -> Void in
@@ -33,6 +37,73 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
         
         // for iPad reading:
         self.tableView.cellLayoutMarginsFollowReadableWidth = true
+        
+        
+        tableView.backgroundView = emptyView
+        tableView.backgroundView?.isHidden = true
+        
+        // fetch load data:
+        let fetchRequest: NSFetchRequest<PictureMO> = PictureMO.fetchRequest()
+        let sortDesciptor = NSSortDescriptor(key: "title", ascending: true)
+        fetchRequest.sortDescriptors = [sortDesciptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResult = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResult.delegate = self
+            
+            do {
+                try fetchResult.performFetch()
+                if let fetchObjects = fetchResult.fetchedObjects {
+                    self.cellpictures = fetchObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchObjects = controller.fetchedObjects {
+            cellpictures = fetchObjects as! [PictureMO]
+        }
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if cellpictures.count > 0 {
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        } else {
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
+        return 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,32 +118,27 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! PlanetTableViewCell
         
-        let picture: Picture = cellpictures[indexPath.row]
+        let picture: PictureMO = cellpictures[indexPath.row]
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
-        let newDate = inputFormatter.date(from: picture.date)
+        let newDate = inputFormatter.date(from: picture.date!)
         inputFormatter.dateFormat = "yyyy MMM.dd"
         let result = inputFormatter.string(from: newDate!)
         
         tableCell.tableCellDate.text = result
         tableCell.tabelCellTiltle.text = picture.title
         
-        DispatchQueue.global().async {
-            let url = URL(string: picture.url)
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                tableCell.tableCellImage.image = UIImage(data: data!)
-                tableCell.tableCellImage.layer.cornerRadius = 30
-            }
+        if let picimage = picture.image {
+            tableCell.tableCellImage.image = UIImage(data: picimage)
         }
         // debug the recicle of tableViewCell:
-        if cellCheck[indexPath.row] == true {
-//            tableCell.accessoryType = .checkmark
-            tableCell.accessoryView = UIImageView.init(image: UIImage(systemName: "heart"))
-        } else {
-            tableCell.accessoryView = UIImageView.init(image: nil)
-        }
+//        if cellCheck[indexPath.row] == true {
+////            tableCell.accessoryType = .checkmark
+//            tableCell.accessoryView = UIImageView.init(image: UIImage(systemName: "heart"))
+//        } else {
+//            tableCell.accessoryView = UIImageView.init(image: nil)
+//        }
         
         return tableCell
     }
@@ -85,17 +151,26 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
 //        tableView.deleteRows(at: [indexPath], with: .fade)
 //    }
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         let deleteAct = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, sourceView, completionHandler) in
-            self.cellpictures.remove(at: indexPath.row)
-            print("complete remove \(self.cellpictures[indexPath.row].title)")
-            
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+//            self.cellpictures.remove(at: indexPath.row)
+//            print("complete remove \(self.cellpictures[indexPath.row].title!)")
+//            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                let picToDelete = self.fetchResult.object(at: indexPath)
+                context.delete(picToDelete)
+                
+                appDelegate.saveContext()
+            }
+            completionHandler(true)
         })
         deleteAct.backgroundColor = UIColor(red: 231, green: 76, blue: 60)
         deleteAct.image = UIImage(systemName: "trash")
         
+        
         let shareAct = UIContextualAction(style: .normal, title: "Share", handler: { (action, sourceView, completionHandler) in
-            let defaultText = "Just checking in at \(self.cellpictures[indexPath.row].title)"
+            let defaultText = "Just checking in at \(self.cellpictures[indexPath.row].title!)"
             
             if let imageToShare = UIImage(systemName: "heart") {
                 let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
@@ -127,6 +202,7 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate {
         
         return swipeConfiguration
     }
+    
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         

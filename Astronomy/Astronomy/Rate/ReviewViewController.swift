@@ -12,17 +12,26 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet var rateBtn: [UIButton]!
     
-    var picture = Picture(url: "", title: "", hdurl: "", date: "", copyright: "", description: "", rating: "")
+    var picture: PictureMO!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         DispatchQueue.global().async {
-            let url = URL(string: self.picture.url)
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                self.bgImage.image = UIImage(data: data!)
-                self.bgImage.alpha = 0.7
+            if let picurl = self.picture.url, picurl != "" {
+                let url = URL(string: picurl)
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    self.bgImage.image = UIImage(data: data!)
+                    self.bgImage.alpha = 0.7
+                }
+            } else {
+                if let picimage = self.picture.image {
+                    DispatchQueue.main.async {
+                        self.bgImage.image = UIImage(data: picimage)
+                        self.bgImage.alpha = 0.7
+                    }
+                }
             }
         }
         
