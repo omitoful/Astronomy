@@ -16,24 +16,29 @@ class ReviewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.global().async {
-            if let picurl = self.picture.url, picurl != "" {
-                let url = URL(string: picurl)
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {
-                    self.bgImage.image = UIImage(data: data!)
-                    self.bgImage.alpha = 0.7
-                }
-            } else {
-                if let picimage = self.picture.image {
-                    DispatchQueue.main.async {
-                        self.bgImage.image = UIImage(data: picimage)
-                        self.bgImage.alpha = 0.7
-                    }
-                }
-            }
+        
+        if let picimage = picture.image {
+            self.bgImage.image = UIImage(data: picimage)
+            self.bgImage.alpha = 0.7
         }
+
+//        DispatchQueue.global().async {
+//            if let picurl = self.picture.url, picurl != "" {
+//                let url = URL(string: picurl)
+//                let data = try? Data(contentsOf: url!)
+//                DispatchQueue.main.async {
+//                    self.bgImage.image = UIImage(data: data!)
+//                    self.bgImage.alpha = 0.7
+//                }
+//            } else {
+//                if let picimage = self.picture.image {
+//                    DispatchQueue.main.async {
+//                        self.bgImage.image = UIImage(data: picimage)
+//                        self.bgImage.alpha = 0.7
+//                    }
+//                }
+//            }
+//        }
         
         let blur = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blur)

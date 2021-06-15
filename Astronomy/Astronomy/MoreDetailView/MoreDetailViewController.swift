@@ -84,23 +84,27 @@ class MoreDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             ratingImage.image = UIImage(named: rating)
         }
         
-        DispatchQueue.global().async {
-            if let picurl = self.picture.url, picurl != "" {
-                let url = URL(string: picurl)
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {
-                    self.moreImage.image = UIImage(data: data!)
-                    self.moreImage.alpha = 0.7
-                }
-            } else {
-                if let picimage = self.picture.image {
-                    DispatchQueue.main.async {
-                        self.moreImage.image = UIImage(data: picimage)
-                        self.moreImage.alpha = 0.7
-                    }
-                }
-            }
+        if let picimage = picture.image {
+            self.moreImage.image = UIImage(data: picimage)
+            self.moreImage.alpha = 0.7
         }
+//        DispatchQueue.global().async {
+//            if let picurl = self.picture.url, picurl != "" {
+//                let url = URL(string: picurl)
+//                let data = try? Data(contentsOf: url!)
+//                DispatchQueue.main.async {
+//                    self.moreImage.image = UIImage(data: data!)
+//                    self.moreImage.alpha = 0.7
+//                }
+//            } else {
+//                if let picimage = self.picture.image {
+//                    DispatchQueue.main.async {
+//                        self.moreImage.image = UIImage(data: picimage)
+//                        self.moreImage.alpha = 0.7
+//                    }
+//                }
+//            }
+//        }
         detailTableView.delegate = self
         detailTableView.dataSource = self
         

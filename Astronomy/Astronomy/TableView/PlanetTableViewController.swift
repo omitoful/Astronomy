@@ -8,11 +8,15 @@
 import UIKit
 import CoreData
 
-class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFetchedResultsControllerDelegate {
+class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
+    
     var cellpictures: [PictureMO] = []
     var cellCheck: [Bool] = []
     @IBOutlet var emptyView: UIView!
     var fetchResult: NSFetchedResultsController<PictureMO>!
+    
+    var searchController: UISearchController!
+    var searchResults: [PictureMO] = []
     
     func information(_ manager: PicManager, didFetch picInfo: [Picture]) {
 //        self.cellpictures = []
@@ -61,6 +65,20 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFe
                 print(error)
             }
         }
+        
+        // search:
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
+        searchController = UISearchController(searchResultsController: nil)
+//        self.navigationItem.searchController = searchController
+        tableView.tableHeaderView = searchController.searchBar
+        self.navigationItem.hidesSearchBarWhenScrolling = true
+        
+        // 最後一步，指定目前類別為結果更新器
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -111,14 +129,18 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFe
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.cellpictures.count
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return self.cellpictures.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! PlanetTableViewCell
         
-        let picture: PictureMO = cellpictures[indexPath.row]
+        // 判斷
+        let picture: PictureMO = (searchController.isActive) ? searchResults[indexPath.row] : cellpictures[indexPath.row]
         
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
@@ -238,17 +260,43 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFe
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! NewDetailViewController
-                destination.picture = cellpictures[indexPath.row]
+                destination.picture = (searchController.isActive) ? searchResults[indexPath.row] : cellpictures[indexPath.row]
             }
         }
     }
     
-    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+    @IBAction func unwindToTable(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
     
     
+    func filterContent(for searchText: String) {
+        self.searchResults = cellpictures.filter({ picture -> Bool in
+            if let title = picture.title {
+                let isMatch = title.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
+    }
     
+    // 依照協定，使用搜尋功能時，這個方法會被直接呼叫
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            
+            // 呼叫我們自己做的過濾方法
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
+    // 在搜尋器啟動時無法編輯cell
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
+    }
     
     
 //    //just for trying didSelectRowAt:

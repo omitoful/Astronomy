@@ -138,7 +138,7 @@ class AddPicTableViewController: UITableViewController, UITextFieldDelegate, UII
                 print("saving data to context...")
                 appDelegate.saveContext()
             }
-            performSegue(withIdentifier: "unwindToHome", sender: self)
+            performSegue(withIdentifier: "unwindToTable", sender: self)
         } else {
             let alert = UIAlertController(title: "oops!", message: "you need to fill all the blanks.", preferredStyle: .alert)
             let alertAct = UIAlertAction(title: "OK", style: .default, handler: nil)

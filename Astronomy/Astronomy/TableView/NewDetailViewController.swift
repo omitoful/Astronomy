@@ -11,6 +11,7 @@ class NewDetailViewController: UIViewController {
     
     @IBOutlet weak var bigImage: UIImageView!
     var picture: PictureMO!
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
