@@ -261,6 +261,8 @@ class PlanetTableViewController: UITableViewController, PicManagerDelegate, NSFe
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! NewDetailViewController
                 destination.picture = (searchController.isActive) ? searchResults[indexPath.row] : cellpictures[indexPath.row]
+                destination.hidesBottomBarWhenPushed = true
+                searchController.isActive = false
             }
         }
     }

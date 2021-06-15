@@ -1171,10 +1171,9 @@
             </objects>
             <point key="canvasLocation" x="2529" y="516"/>
         </scene>
-        <!--About-->
+        <!--About Table View Controller-->
         <scene sceneID="YPA-YK-BSa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nSB-sC-Ru6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="AboutTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ebt-2H-XFn" customClass="AboutTableViewController" customModule="Astronomy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DD0-Fu-xhV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1184,7 +1183,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-hero" translatesAutoresizingMaskIntoConstraints="NO" id="27d-zi-R3I">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="27d-zi-R3I">
                                     <rect key="frame" x="147" y="35" width="120" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="120" id="CPX-Vc-KLQ"/>
@@ -1213,48 +1212,11 @@
                             <outlet property="delegate" destination="Ebt-2H-XFn" id="e5K-2N-v8w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="About" largeTitleDisplayMode="always" id="ZHd-Zn-bSy"/>
-                    <connections>
-                        <segue destination="kS2-RO-dVw" kind="show" identifier="showWebView" id="yBu-zj-JxB"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="ZHd-Zn-bSy"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nSB-sC-Ru6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4145" y="-1285"/>
-        </scene>
-        <!--Web View Controller-->
-        <scene sceneID="oLC-X7-DOT">
-            <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kS2-RO-dVw" customClass="WebViewController" customModule="Astronomy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZhC-Ly-t50">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUF-h3-gr6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Lfw-TP-YrE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Lfw-TP-YrE" firstAttribute="trailing" secondItem="lUF-h3-gr6" secondAttribute="trailing" id="0Cg-j1-uEa"/>
-                            <constraint firstItem="lUF-h3-gr6" firstAttribute="leading" secondItem="Lfw-TP-YrE" secondAttribute="leading" id="5k7-xl-26v"/>
-                            <constraint firstAttribute="bottom" secondItem="lUF-h3-gr6" secondAttribute="bottom" id="EKq-vQ-QmV"/>
-                            <constraint firstItem="lUF-h3-gr6" firstAttribute="top" secondItem="Lfw-TP-YrE" secondAttribute="top" id="SRt-dl-P82"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="vgD-Eg-42c"/>
-                    <connections>
-                        <outlet property="webView" destination="lUF-h3-gr6" id="FL3-F0-Pch"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHp-Of-i2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5125" y="-1285"/>
+            <point key="canvasLocation" x="4288.4057971014499" y="-1285.0446428571429"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Lde-hj-7Zv">
@@ -1269,25 +1231,19 @@
         <!--About-->
         <scene sceneID="5qR-u0-b1u">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="plh-c5-0Yt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y8m-hN-n2D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" image="globe" catalog="system" id="wax-zr-lt5"/>
+                    <tabBarItem key="tabBarItem" title="About" selectedImage="globe" catalog="system" id="wax-zr-lt5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UAc-h5-IuF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="systemGreenColor"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="systemGreenColor"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Ebt-2H-XFn" kind="relationship" relationship="rootViewController" id="gXc-BV-azS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plh-c5-0Yt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3378.2608695652175" y="-1285.0446428571429"/>
         </scene>

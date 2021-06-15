@@ -1171,7 +1171,7 @@
             </objects>
             <point key="canvasLocation" x="2529" y="516"/>
         </scene>
-        <!--About-->
+        <!--About Table View Controller-->
         <scene sceneID="YPA-YK-BSa">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSB-sC-Ru6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1213,48 +1213,10 @@
                             <outlet property="delegate" destination="Ebt-2H-XFn" id="e5K-2N-v8w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="About" largeTitleDisplayMode="always" id="ZHd-Zn-bSy"/>
-                    <connections>
-                        <segue destination="kS2-RO-dVw" kind="show" identifier="showWebView" id="yBu-zj-JxB"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="ZHd-Zn-bSy"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="4145" y="-1285"/>
-        </scene>
-        <!--Web View Controller-->
-        <scene sceneID="oLC-X7-DOT">
-            <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kS2-RO-dVw" customClass="WebViewController" customModule="Astronomy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZhC-Ly-t50">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUF-h3-gr6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Lfw-TP-YrE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Lfw-TP-YrE" firstAttribute="trailing" secondItem="lUF-h3-gr6" secondAttribute="trailing" id="0Cg-j1-uEa"/>
-                            <constraint firstItem="lUF-h3-gr6" firstAttribute="leading" secondItem="Lfw-TP-YrE" secondAttribute="leading" id="5k7-xl-26v"/>
-                            <constraint firstAttribute="bottom" secondItem="lUF-h3-gr6" secondAttribute="bottom" id="EKq-vQ-QmV"/>
-                            <constraint firstItem="lUF-h3-gr6" firstAttribute="top" secondItem="Lfw-TP-YrE" secondAttribute="top" id="SRt-dl-P82"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="vgD-Eg-42c"/>
-                    <connections>
-                        <outlet property="webView" destination="lUF-h3-gr6" id="FL3-F0-Pch"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHp-Of-i2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5125" y="-1285"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Lde-hj-7Zv">
@@ -1276,12 +1238,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UAc-h5-IuF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="systemGreenColor"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="systemGreenColor"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

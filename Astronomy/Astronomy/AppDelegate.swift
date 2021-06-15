@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pageControl.currentPageIndicatorTintColor = .systemGreen
         pageControl.pageIndicatorTintColor = .lightGray
         
+        UITabBar.appearance().barTintColor = UIColor.black
         
         return true
     }
