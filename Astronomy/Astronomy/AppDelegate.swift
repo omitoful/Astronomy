@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorImage = backBtnImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = backBtnImage
         
+        let pageControl = UIPageControl.appearance()
+        pageControl.currentPageIndicatorTintColor = .systemGreen
+        pageControl.pageIndicatorTintColor = .lightGray
+        
+        
         return true
     }
 

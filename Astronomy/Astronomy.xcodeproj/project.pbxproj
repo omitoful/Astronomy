@@ -16,6 +16,10 @@
 		913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB98B267527D1009E78AC /* AddPicTableViewController.swift */; };
 		913FB9B72675EBCD009E78AC /* Astronomy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9B52675EBCD009E78AC /* Astronomy.xcdatamodeld */; };
 		913FB9BC267849E9009E78AC /* TryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9BB267849E9009E78AC /* TryTableViewController.swift */; };
+		913FB9C826788B2A009E78AC /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913FB9C726788B2A009E78AC /* Onboarding.storyboard */; };
+		913FB9D02678A2DE009E78AC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9CF2678A2DE009E78AC /* PageViewController.swift */; };
+		913FB9D52678AF81009E78AC /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9D42678AF81009E78AC /* WalkthroughContentViewController.swift */; };
+		913FB9D92678AFE3009E78AC /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9D82678AFE3009E78AC /* WalkthroughViewController.swift */; };
 		91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B98267240480090ABBD /* MoreDetailViewController.swift */; };
 		91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */; };
 		91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465BA32673991C0090ABBD /* TextTableViewCell.swift */; };
@@ -45,6 +49,10 @@
 		913FB98B267527D1009E78AC /* AddPicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPicTableViewController.swift; sourceTree = "<group>"; };
 		913FB9B62675EBCD009E78AC /* Astronomy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Astronomy.xcdatamodel; sourceTree = "<group>"; };
 		913FB9BB267849E9009E78AC /* TryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryTableViewController.swift; sourceTree = "<group>"; };
+		913FB9C726788B2A009E78AC /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		913FB9CF2678A2DE009E78AC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		913FB9D42678AF81009E78AC /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		913FB9D82678AFE3009E78AC /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		91465B98267240480090ABBD /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTableViewCell.swift; sourceTree = "<group>"; };
 		91465BA32673991C0090ABBD /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,6 +118,17 @@
 			path = AddPic;
 			sourceTree = "<group>";
 		};
+		913FB9CD2678A02C009E78AC /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				913FB9C726788B2A009E78AC /* Onboarding.storyboard */,
+				913FB9CF2678A2DE009E78AC /* PageViewController.swift */,
+				913FB9D82678AFE3009E78AC /* WalkthroughViewController.swift */,
+				913FB9D42678AF81009E78AC /* WalkthroughContentViewController.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
 		91465B9C267398260090ABBD /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +185,9 @@
 				913FB9B52675EBCD009E78AC /* Astronomy.xcdatamodeld */,
 				9179C362266E438E00BBE93A /* SceneDelegate.swift */,
 				9179C366266E438E00BBE93A /* Main.storyboard */,
+				913FB9CD2678A02C009E78AC /* PageView */,
+				9179C36B266E439200BBE93A /* LaunchScreen.storyboard */,
+				9179C36E266E439200BBE93A /* Info.plist */,
 				913FB98826752089009E78AC /* RoundedTextField.swift */,
 				9179C383266E7D4900BBE93A /* Information.swift */,
 				9179C380266E6F4B00BBE93A /* PicManager.swift */,
@@ -178,8 +200,6 @@
 				913FB9822674AC92009E78AC /* Rate */,
 				913FB98E267527E0009E78AC /* AddPic */,
 				9179C369266E439200BBE93A /* Assets.xcassets */,
-				9179C36B266E439200BBE93A /* LaunchScreen.storyboard */,
-				9179C36E266E439200BBE93A /* Info.plist */,
 			);
 			path = Astronomy;
 			sourceTree = "<group>";
@@ -244,6 +264,7 @@
 				9179C36D266E439200BBE93A /* LaunchScreen.storyboard in Resources */,
 				9179C36A266E439200BBE93A /* Assets.xcassets in Resources */,
 				9179C368266E438E00BBE93A /* Main.storyboard in Resources */,
+				913FB9C826788B2A009E78AC /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +288,10 @@
 				91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */,
 				913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
+				913FB9D52678AF81009E78AC /* WalkthroughContentViewController.swift in Sources */,
 				913FB9B72675EBCD009E78AC /* Astronomy.xcdatamodeld in Sources */,
 				91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */,
+				913FB9D02678A2DE009E78AC /* PageViewController.swift in Sources */,
 				9179C37C266E588200BBE93A /* DetailViewController.swift in Sources */,
 				9179C376266E581300BBE93A /* PlanetCollectionViewController.swift in Sources */,
 				9179C363266E438E00BBE93A /* SceneDelegate.swift in Sources */,
@@ -276,6 +299,7 @@
 				9149B9BD2670AD8E003B18C7 /* PlanetTableViewCell.swift in Sources */,
 				913FB97E26748BE7009E78AC /* MapViewController.swift in Sources */,
 				913FB98926752089009E78AC /* RoundedTextField.swift in Sources */,
+				913FB9D92678AFE3009E78AC /* WalkthroughViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
