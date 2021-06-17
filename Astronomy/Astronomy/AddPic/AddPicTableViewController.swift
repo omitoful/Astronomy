@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 class AddPicTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -137,13 +138,53 @@ class AddPicTableViewController: UITableViewController, UITextFieldDelegate, UII
                 
                 print("saving data to context...")
                 appDelegate.saveContext()
+                print("saving data to iCloud...")
+                saveRecordToCloud(picture: picture)
             }
-            performSegue(withIdentifier: "unwindToTable", sender: self)
+            dismiss(animated: true, completion: nil)
+            
         } else {
             let alert = UIAlertController(title: "oops!", message: "you need to fill all the blanks.", preferredStyle: .alert)
             let alertAct = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(alertAct)
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func saveRecordToCloud(picture: PictureMO!) -> Void {
+        
+        let record = CKRecord(recordType: "Picture")
+        record.setValue(picture.title, forKey: "title")
+        record.setValue(picture.date, forKey: "date")
+        record.setValue(picture.copyright, forKey: "copyright")
+        record.setValue(picture.picDescription, forKey: "picDescription")
+        record.setValue(picture.url, forKey: "url")
+
+        
+        let imageData = picture.image! as Data
+        
+        // 調整圖片大小
+        let originalImage = UIImage(data: imageData)!
+        let scalingFactor = (originalImage.size.width > 1024) ? 1024 / originalImage.size.width : 1.0
+        let scaledImage = UIImage(data: imageData, scale: scalingFactor)!
+        
+        // 將圖片放進本地端檔案作為暫時使用
+        let imageFilePath = NSTemporaryDirectory() + picture.title!
+        let imageFileURL = URL(fileURLWithPath: imageFilePath)
+//        try? scaledImage.pngData()?.write(to: imageFileURL)
+        try? scaledImage.jpegData(compressionQuality: 0.8)?.write(to: imageFileURL)
+        
+        // 建立要上傳的圖片素材
+        let imageAsset = CKAsset(fileURL: imageFileURL)
+        record.setValue(imageAsset, forKey: "image")
+        
+        // 讀取icloud
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+        
+        // 存資料至icloud
+        publicDatabase.save(record, completionHandler: { (record, error) -> Void in
+            // 移除暫存
+            try? FileManager.default.removeItem(at: imageFileURL)
+        })
     }
 }

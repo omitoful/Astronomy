@@ -23,6 +23,8 @@
 		913FB9E92678F549009E78AC /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913FB9E82678F549009E78AC /* Discover.storyboard */; };
 		913FB9EE2678F77C009E78AC /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FB9ED2678F77C009E78AC /* AboutTableViewController.swift */; };
 		913FBA02267914B1009E78AC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FBA01267914B1009E78AC /* WebViewController.swift */; };
+		913FBA0726797CE2009E78AC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 913FBA0626797CE2009E78AC /* CloudKit.framework */; };
+		913FBA0B267982CD009E78AC /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FBA0A267982CD009E78AC /* DiscoverTableViewController.swift */; };
 		91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B98267240480090ABBD /* MoreDetailViewController.swift */; };
 		91465B9F267398DC0090ABBD /* ContextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */; };
 		91465BA42673991C0090ABBD /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91465BA32673991C0090ABBD /* TextTableViewCell.swift */; };
@@ -59,6 +61,9 @@
 		913FB9E82678F549009E78AC /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		913FB9ED2678F77C009E78AC /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		913FBA01267914B1009E78AC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		913FBA0426797CDC009E78AC /* Astronomy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Astronomy.entitlements; sourceTree = "<group>"; };
+		913FBA0626797CE2009E78AC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		913FBA0A267982CD009E78AC /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		91465B98267240480090ABBD /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		91465B9E267398DC0090ABBD /* ContextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextTableViewCell.swift; sourceTree = "<group>"; };
 		91465BA32673991C0090ABBD /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				913FB9752673E5E0009E78AC /* MapKit.framework in Frameworks */,
+				913FBA0726797CE2009E78AC /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,7 @@
 		913FB9732673E5E0009E78AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				913FBA0626797CE2009E78AC /* CloudKit.framework */,
 				913FB9742673E5E0009E78AC /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				913FB9E82678F549009E78AC /* Discover.storyboard */,
+				913FBA0A267982CD009E78AC /* DiscoverTableViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 		9179C35F266E438E00BBE93A /* Astronomy */ = {
 			isa = PBXGroup;
 			children = (
+				913FBA0426797CDC009E78AC /* Astronomy.entitlements */,
 				9179C360266E438E00BBE93A /* AppDelegate.swift */,
 				9179C362266E438E00BBE93A /* SceneDelegate.swift */,
 				9179C36B266E439200BBE93A /* LaunchScreen.storyboard */,
@@ -315,6 +324,7 @@
 				913FB9852674B191009E78AC /* ReviewViewController.swift in Sources */,
 				91465B99267240480090ABBD /* MoreDetailViewController.swift in Sources */,
 				913FB98C267527D1009E78AC /* AddPicTableViewController.swift in Sources */,
+				913FBA0B267982CD009E78AC /* DiscoverTableViewController.swift in Sources */,
 				9179C379266E583A00BBE93A /* PlanetCollectionViewCell.swift in Sources */,
 				913FB9D52678AF81009E78AC /* WalkthroughContentViewController.swift in Sources */,
 				913FB9B72675EBCD009E78AC /* Astronomy.xcdatamodeld in Sources */,
@@ -474,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Astronomy/Astronomy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45C7J6QVKC;
 				INFOPLIST_FILE = Astronomy/Info.plist;
@@ -494,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Astronomy/Astronomy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45C7J6QVKC;
 				INFOPLIST_FILE = Astronomy/Info.plist;
